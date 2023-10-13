@@ -42,6 +42,7 @@ function addNum() {
 
 // Event Listeners
 
+
 // Space key to start timer
 window.addEventListener("keyup", (event) => {
   if (event.code === "Space") {
