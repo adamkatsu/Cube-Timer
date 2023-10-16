@@ -30,6 +30,7 @@ function startTimer() {
     count = 0;
     sec = 0;
     secMinOne = 0;
+    minutes = 0;
     int = null;
 
   } else {
