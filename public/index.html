@@ -6,10 +6,10 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Cube Timer</title>
 </head>
-<body style="max-height: 100vh; padding-top: 200px;">
+<body style="max-height: 100vh; padding-top: 100px;">
 
 <style>
-    .app-timer {
+    .app-timer, .results-timer {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -20,6 +20,11 @@
         border: 1px solid grey;
         margin: auto;
         width: 50vw;
+    }
+    .results-timer {
+        margin-top: 64px;
+        align-items: flex-start;
+        gap: 4px;
     }
     .time-show {
         font-size: 144px;
@@ -41,6 +46,10 @@
     <div id="app-timer" class="app-timer">
         <span class="time-show">0.00</span>
         <button class="btn-reset">reset</button>
+    </div>
+    <div class="results-timer">
+        <span style="font-size: 32px;">Times:</span>
+        <span id="results-timer"></span>
     </div>
 
   <script src="script.js"></script>

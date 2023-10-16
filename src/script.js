@@ -4,6 +4,7 @@ let minutes = 0;
 let sec = 0;
 let secMinOne = 0;
 let int = null;
+const timeList = document.getElementById('results-timer');
 
 
 // Main Timer Logic
@@ -14,7 +15,15 @@ function startTimer() {
     clearInterval(int);
 
     // Store Result in avglist array
-    avglist.push(`${minutes}:${sec}.${secMinOne}${count}`)
+    avgList.push(`${minutes}:${sec}.${secMinOne}${count}`);
+
+    // Store Times in Time List
+    if(timeList.innerHTML === "") {
+      timeList.innerHTML += `${minutes}:${sec}.${secMinOne}${count}`
+    } else {
+      timeList.innerHTML += `<br>${minutes}:${sec}.${secMinOne}${count}`
+    }
+    
     console.log(`timer stopped, time is = ${minutes}:${sec}.${secMinOne}${count}`);
 
     // Reset Timer 
@@ -120,4 +129,4 @@ document.querySelector("button").addEventListener("click", () => {
 
 // Store and Count Average
 
-let avglist = []
+let avgList = []
