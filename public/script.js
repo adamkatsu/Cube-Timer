@@ -19,9 +19,19 @@ function startTimer() {
 
     // Store Times in Time List
     if(timeList.innerHTML === "") {
-      timeList.innerHTML += `${minutes}:${sec}.${secMinOne}${count}`
+      if (minutes < 1) {
+        timeList.innerHTML += `${sec}.${secMinOne}${count}`
+      } else {
+        timeList.innerHTML += `${minutes}:${sec}.${secMinOne}${count}`
+      }
+      // timeList.innerHTML += `${minutes}:${sec}.${secMinOne}${count}`
     } else {
-      timeList.innerHTML += `<br>${minutes}:${sec}.${secMinOne}${count}`
+      if (minutes < 1) {
+        timeList.innerHTML += `, ${sec}.${secMinOne}${count}`
+      } else {
+        timeList.innerHTML += `, ${minutes}:${sec}.${secMinOne}${count}`
+      }
+      // timeList.innerHTML += `<br>${minutes}:${sec}.${secMinOne}${count}`
     }
     
     console.log(`timer stopped, time is = ${minutes}:${sec}.${secMinOne}${count}`);
