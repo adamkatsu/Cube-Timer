@@ -1,10 +1,11 @@
 let num = document.querySelector("span");
+const timeList = document.getElementById('results');
 let count = 0;
 let minutes = 0;
 let sec = 0;
 let secMinOne = 0;
 let int = null;
-const timeList = document.getElementById('results-timer');
+let avgList = [];
 
 
 // Main Timer Logic
@@ -13,28 +14,28 @@ function startTimer() {
   if (int !== null) {
     // If Timer is Running, Stop
     clearInterval(int);
+    console.log(`timer stopped, time is = ${minutes}:${sec}.${secMinOne}${count}`);
 
     // Store Result in avglist array
-    avgList.push(`${minutes}:${sec}.${secMinOne}${count}`);
-
-    // Store Times in Time List
-    if(timeList.innerHTML === "") {
-      if (minutes < 1) {
-        timeList.innerHTML += `${sec}.${secMinOne}${count}`
-      } else {
-        timeList.innerHTML += `${minutes}:${sec}.${secMinOne}${count}`
-      }
-      // timeList.innerHTML += `${minutes}:${sec}.${secMinOne}${count}`
+    if (sec < 10) {
+      avgList.push(`${minutes}:0${sec}.${secMinOne}${count}`);
     } else {
-      if (minutes < 1) {
-        timeList.innerHTML += `, ${sec}.${secMinOne}${count}`
-      } else {
-        timeList.innerHTML += `, ${minutes}:${sec}.${secMinOne}${count}`
-      }
-      // timeList.innerHTML += `<br>${minutes}:${sec}.${secMinOne}${count}`
+      avgList.push(`${minutes}:${sec}.${secMinOne}${count}`);
     }
-    
-    console.log(`timer stopped, time is = ${minutes}:${sec}.${secMinOne}${count}`);
+
+    // Show avgList results
+    timeList.innerHTML = ""; // Clear list to make room for new list
+
+    // Loop through each array
+    avgList.forEach(item => {
+      const spanElement = document.createElement("span");
+      spanElement.classList.add('result-time');
+      spanElement.textContent = `${item}`; // Set the text content of the span
+      timeList.appendChild(spanElement); // Append the span to the div
+      timeList.appendChild(document.createTextNode(", "));
+      console.log(spanElement);
+    });
+    timeList.removeChild(timeList.lastChild); // Remove the coma from last array
 
     // Reset Timer 
     count = 0;
@@ -44,7 +45,7 @@ function startTimer() {
     int = null;
 
   } else {
-    // Else If Timer isn't Running, Start
+    // Start if timer is not running
     int = setInterval(addNum, 10);
     console.log(`timer started`);
   }
@@ -52,7 +53,7 @@ function startTimer() {
 function addNum() {
   count += 1;
 
-  // Under 1 Minute
+  // Check if under 1 minute
   if(minutes < 1) {
 
     num.innerHTML = `${sec}.${secMinOne}${count}`;
@@ -119,9 +120,7 @@ function addNum() {
 
 }
 
-
 // Event Listeners
-
 
 // Space key to start timer
 window.addEventListener("keyup", (event) => {
@@ -134,10 +133,6 @@ window.addEventListener("keyup", (event) => {
 // Button function
 document.querySelector("button").addEventListener("click", () => {
   num.innerHTML = `0.00`;
+  timeList.innerHTML = ``;
+  avgList = [];
 });
-
-
-
-// Store and Count Average
-
-let avgList = []
