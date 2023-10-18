@@ -1,0 +1,57 @@
+@use "../abstracts" as *;
+@use "../base" as *;
+
+aside {
+    display: flex;
+}
+.container {
+    @include flex-box(column, flex-start, center);
+    width: fit-content;
+    position: relative;
+    z-index: 1;
+    gap: 32px;
+    padding: 32px;
+    /* border: 1px solid #f5f5f5; */
+    border-radius: 32px;
+    // margin: auto;
+    // height: 100%;
+    box-shadow: -10px 10px 20px 0px rgba(20, 20, 20, 0.3);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+.results-timer {
+    width: 30%;
+    align-items: flex-start;
+    gap: 4px;   
+}
+.results-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+.app-timer {
+    width: 100%;
+    justify-content: center;
+}
+.navbar {
+    width: fit-content;
+    padding: 2rem 1rem;
+}
+.img-bg {
+    position: absolute;
+    width: 1600px;
+}
+.bg-blue-one {
+    top: -50%;
+    right: -25%;
+}
+.bg-blue-two {
+    bottom: -50%;
+    left: -10%;
+}
+.bg-green {
+    top: -50%;
+    left: -30%;
+}

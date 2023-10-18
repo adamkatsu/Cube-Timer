@@ -1,7 +1,9 @@
 @use "../abstracts" as *;
 
-h1,
-h2,
-h3 {
-  line-height: 1.1;
+.time-show {
+  font-size: 240px;
+  font-family: 'PT Mono', monospace;
+  font-weight: 300;
+  line-height: 140%;
+  letter-spacing: -16px;
 }

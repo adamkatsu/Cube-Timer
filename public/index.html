@@ -1,97 +1,71 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=PT+Mono&display=swap" rel="stylesheet">
-        <title>Cube Timer</title>
-    </head>
-    <body style="font-family: 'Inter', sans-serif; color: #f5f5f5; max-height: 100vh; padding-top: 100px; position: relative; background-image: linear-gradient(to right top, #34c18f, #00b8b2, #00abd3, #0099e6, #1a82e3);">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=PT+Mono&display=swap" rel="stylesheet">
+    <title>Cube Timer</title>
+</head>
+<body>
+    
+<main>
+    <div class="body-background">
+        <img src="../assets/img/bg-blue-one.png" alt="" class="img-bg bg-blue-one">
+        <img src="../assets/img/bg-blue-two.png" alt="" class="img-bg bg-blue-two">
+        <img src="../assets/img/bg-green.png" alt="" class="img-bg bg-green">
+        <div class="body-overlay"></div>
+    </div>
 
-    <style>
-        .container {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            width: fit-content;
-            position: relative;
-            z-index: 1;
-            gap: 32px;
-            padding: 32px;
-            /* border: 1px solid #f5f5f5; */
-            border-radius: 24px;
-            margin: auto;
-            width: 50vw;
-            box-shadow: -10px 10px 20px 0px rgba(20, 20, 20, 0.15);
-            background-color: rgba(255, 255, 255, 0.15);
-        }
-        .results-timer {
-            margin-top: 32px;
-            align-items: flex-start;
-            gap: 4px;
-            
-        }
-        .results-list {
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-start;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 4px;
-        }
-        .time-show {
-            font-size: 240px;
-            font-family: 'PT Mono', monospace;
-            font-weight: 300;
-            line-height: 140%;
-            letter-spacing: -16px;
-        }
-        /* .timer-on {
-            background-color: rgba(0, 0, 0, 0.2);
-        } */
-        .btn {
-            display: flex;
-            padding: 16px 32px;
-            justify-content: center;
-            align-items: center;
-            border-radius: 32px;
-            border: none;
-            background-color: #f5f5f5;
-            color: #141414;
-            /* background: linear-gradient(96deg, #1A82E3 2.45%, #000 50.73%, #34C18F 105.46%); */
-            box-shadow: 6px 6px 20px 0px rgba(20, 20, 20, 0.2);
-            /* color: #f5f5f5; */
-            cursor: pointer;
-        }
-        .btn-wrapper {
-            display: flex;
-            flex-direction: row;
-            gap: 24px;
-        }
-        .btn-reset:focus {
-            border: none;
-        }
-    </style>
-        <div class="body-overlay" style="position: absolute; top: 0; right: 0; bottom: 0; left: 0; background-color: rgba(0,0,0,0.3); z-index: 0;"></div>
-        <div id="app-timer" class="container app-timer">
-            <span class="time-show">0.00</span>
-            <div class="btn-wrapper">
-                <button class="btn btn-reset">Reset</button>
-                <button class="btn">Button</button>
-                <button class="btn">Button</button>
-                <button class="btn">Button</button>
+    <aside>
+        <div class="container navbar" id="navbar">
+            <div class="nav-logo">
+                <img src="../assets/img/fluent_cube-48-regular.svg" alt="" class="nav-img">
+            </div>
+            <ul class="nav-links">
+                <li class="nav-items">
+                    <button class="btn btn-nav" id="btn-home">
+                        <img src="../assets/img/Vector.svg" alt="" class="nav-img">
+                    </button>
+                </li>
+                <li class="nav-items">
+                    <button class="btn btn-nav" id="btn-session">
+                        <img src="../assets/img/ion_grid-outline.svg" alt="" class="nav-img">
+                    </button>
+                </li>
+                <li class="nav-items">
+                    <button class="btn btn-nav" id="btn-docs">
+                        <img src="../assets/img/solar_documents-outline.svg" alt="" class="nav-img">
+                    </button>
+                </li>
+                <li class="nav-items">
+                    <button class="btn btn-nav" id="btn-settings">
+                        <img src="../assets/img/solar_settings-linear.svg" alt="" class="nav-img">
+                    </button>
+                </li>
+            </ul>
+            <div class="nav-foot">
+                <img src="../assets/img/fluent_cube-48-regular.svg" alt="" class="nav-img">
             </div>
         </div>
-        <div class="container results-timer">
-            <span style="font-size: 32px;">Times:</span>
-            <span id="results" class="results-list"></span>
+    </aside>
+    <div class="container results-timer" id="sidebar">
+        <span style="font-size: 32px;">Times:</span>
+        <span id="results" class="results-list"></span>
+    </div>
+    <div id="app-timer" class="container app-timer">
+        <span class="time-show">Hello</span>
+        <div class="btn-wrapper">
+            <button class="btn btn-reset" id="btn-reset">Reset</button>
+            <button class="btn">Button</button>
+            <button class="btn">Button</button>
+            <button class="btn">Button</button>
         </div>
-
-    <script src="script.js"></script>
-        
-    </body>
-    </html>
+    </div>
+</main>
+<script src="script.js"></script>
+    
+</body>
+</html>

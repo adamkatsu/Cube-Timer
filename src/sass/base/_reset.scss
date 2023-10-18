@@ -3,6 +3,8 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 body,
@@ -23,6 +25,9 @@ ol[role="list"] {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+ul, li {
+  list-style: none;
 }
 
 html:focus-within {

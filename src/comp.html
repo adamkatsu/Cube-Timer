@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=PT+Mono&display=swap" rel="stylesheet">
+    <title>Cube Timer</title>
+</head>
+<body>
+    <main style="flex-direction: column; justify-content: center; align-items: center;">
+        <div class="body-overlay"></div>
+        <div id="app-timer" class="container app-timer">
+            <span class="time-show">Hello</span>
+            <div class="btn-wrapper">
+                <button class="btn btn-reset">Reset</button>
+                <button class="btn">Button</button>
+                <button class="btn">Button</button>
+                <button class="btn">Button</button>
+            </div>
+        </div>
+        <div class="container results-timer">
+            <span style="font-size: 32px;">Times:</span>
+            <span id="results" class="results-list"></span>
+        </div>
+    </main>
+<script src="script.js"></script>
+    
+</body>
+</html>

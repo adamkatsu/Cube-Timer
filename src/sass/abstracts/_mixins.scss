@@ -1,10 +1,16 @@
-@mixin flex-center() {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+@use "variables" as *;
+
+@mixin font-face($family: $font-txt, $size: 16px, $color: $color-black, $weight: 500, $height: 140%) {
+  font-family: $family;
+  font-size: $size;
+  color: $color;
+  font-weight: $weight;
+  line-height: $height;
 }
 
-@mixin grid-center() {
-  display: grid;
-  place-items: center;
+@mixin flex-box($flex-dir: row, $flex-just: flex-start, $flex-align: flex-start) {
+  display: flex;
+  flex-direction: $flex-dir;
+  justify-content: $flex-just;
+  align-items: $flex-align;
 }

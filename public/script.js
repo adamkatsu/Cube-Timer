@@ -1,4 +1,4 @@
-let num = document.querySelector("span");
+let num = document.querySelector(".time-show");
 const timeList = document.getElementById('results');
 let count = 0;
 let minutes = 0;
@@ -131,7 +131,7 @@ window.addEventListener("keyup", (event) => {
 });
 
 // Button function
-document.querySelector("button").addEventListener("click", () => {
+document.getElementById('btn-reset').addEventListener("click", () => {
   num.innerHTML = `0.00`;
   timeList.innerHTML = ``;
   avgList = [];
