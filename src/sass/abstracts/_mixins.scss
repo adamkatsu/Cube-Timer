@@ -14,3 +14,8 @@
   justify-content: $flex-just;
   align-items: $flex-align;
 }
+
+@mixin bg-gradient() {
+  background: linear-gradient(96deg, rgba(26, 130, 227, 0.70) 2.45%, #000 50.73%, rgba(52, 193, 143, 0.7) 105.46%);
+  background-color: $color-black;
+}

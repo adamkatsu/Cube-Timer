@@ -11,17 +11,14 @@ aside {
     z-index: 1;
     gap: 32px;
     padding: 32px;
-    /* border: 1px solid #f5f5f5; */
     border-radius: 32px;
-    // margin: auto;
-    // height: 100%;
     box-shadow: -10px 10px 20px 0px rgba(20, 20, 20, 0.3);
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: rgba(255, 255, 255, 0.2);
 }
 .results-timer {
     width: 30%;
     align-items: flex-start;
-    gap: 4px;   
+    gap: 1rem;   
 }
 .results-list {
     display: flex;
@@ -54,4 +51,17 @@ aside {
 .bg-green {
     top: -50%;
     left: -30%;
+}
+.inner-cont {
+    @include bg-gradient();
+    @include flex-box(column, flex-start, stretch);
+    gap: 1rem;
+    padding: 1.5rem;
+    min-height: 240px;
+    width: 100%; 
+    border-radius: 1rem;
+    box-shadow: -10px 10px 20px 0px rgba(20, 20, 20, 0.2);
+}
+.inner-s {
+    min-height: 0px;
 }

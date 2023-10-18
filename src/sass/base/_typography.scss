@@ -7,3 +7,9 @@
   line-height: 140%;
   letter-spacing: -16px;
 }
+.h2 {
+  @include font-face($font-txt, 24px, $color-whitesmoke, 400, 140%);
+}
+.h3 {
+  @include font-face($font-txt, 1rem, $color-whitesmoke, 400, 140%);
+}

@@ -6,7 +6,7 @@
     padding: 16px 32px;
     border-radius: 32px;
     border: none;
-    background: linear-gradient(96deg, #1A82E3 2.45%, #000 50.73%, #34C18F 105.46%);
+    @include bg-gradient();
     box-shadow: 6px 6px 20px 0px rgba(20, 20, 20, 0.2);
     color: #f5f5f5;
     cursor: pointer;
