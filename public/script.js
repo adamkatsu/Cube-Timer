@@ -1,3 +1,12 @@
+// Notes:
+
+// We have 3 lists of solves
+// 1. avgList = finished process [array], will be shown in list of solves in HTML
+// 2. avgStorage = list in localStorage
+// 3. newList = temporary [array] that have been updated with previous time. 
+
+// We save session history in localStorage
+
 let num = document.querySelector(".time-show");
 const timeList = document.getElementById('results');
 let count = 0;
@@ -8,11 +17,24 @@ let int = null;
 let avgList = [];
 
 
-// Main Timer Logic
+// Get localStorage when page load
+let avgStorage = localStorage.getItem('session');
 
+// Check if session exist
+if(avgStorage === null) {
+  // If not exist, let it be
+  avgList = [];
+} else {
+  // If exist, turn avgStorage [string] to avgList [array], show in list of solves in HTML
+  avgList = avgStorage.split(',');
+  printSolves(avgList);
+}
+
+
+// Main Timer Function
 function startTimer() {
   if (int !== null) {
-    // If Timer is Running, Stop
+    // If Timer is Running, STOP.
     clearInterval(int);
     console.log(`timer stopped, time is = ${minutes}:${sec}.${secMinOne}${count}`);
 
@@ -26,20 +48,9 @@ function startTimer() {
     // Save avgList in LocalStorage
     localStorage.setItem('session', avgList);
     let avgStorage = localStorage.getItem('session');
-    console.log(`avgStorage = ${avgStorage}, avgList = ${avgList}`);
+    let newList = avgStorage.split(','); // Temporary array to print new list.
 
-
-    timeList.innerHTML = ""; // Clear list to make room for new list
-
-    // Show results, Loop through each array
-    avgList.forEach(item => {
-      const spanElement = document.createElement("span");
-      spanElement.classList.add('result-time');
-      spanElement.textContent = `${item}`;
-      timeList.appendChild(spanElement);
-      timeList.appendChild(document.createTextNode(", "));
-    });
-    timeList.removeChild(timeList.lastChild); // Remove the coma from last array
+    printSolves(newList);
 
     // Reset Timer 
     count = 0;
@@ -49,11 +60,14 @@ function startTimer() {
     int = null;
 
   } else {
-    // Start if timer is not running
+    // If timer is not running, START.
     int = setInterval(addNum, 10);
     console.log(`timer started`);
   }
 }
+
+
+// Increment Seconds
 function addNum() {
   count += 1;
 
@@ -121,8 +135,21 @@ function addNum() {
       }
     }
   }
-
 }
+function printSolves(x) {
+  timeList.innerHTML = ""; // Clear list to make room for new list
+
+  // Show results, Loop through each array
+  x.forEach(item => {
+    const spanElement = document.createElement("span");
+    spanElement.classList.add('result-time');
+    spanElement.textContent = `${item}`;
+    timeList.appendChild(spanElement);
+    timeList.appendChild(document.createTextNode(", "));
+  });
+  timeList.removeChild(timeList.lastChild); // Remove the coma from last array
+}
+
 
 // Event Listeners
 
