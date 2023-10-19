@@ -23,17 +23,21 @@ function startTimer() {
       avgList.push(`${minutes}:${sec}.${secMinOne}${count}`);
     }
 
-    // Show avgList results
+    // Save avgList in LocalStorage
+    localStorage.setItem('session', avgList);
+    let avgStorage = localStorage.getItem('session');
+    console.log(`avgStorage = ${avgStorage}, avgList = ${avgList}`);
+
+
     timeList.innerHTML = ""; // Clear list to make room for new list
 
-    // Loop through each array
+    // Show results, Loop through each array
     avgList.forEach(item => {
       const spanElement = document.createElement("span");
       spanElement.classList.add('result-time');
-      spanElement.textContent = `${item}`; // Set the text content of the span
-      timeList.appendChild(spanElement); // Append the span to the div
+      spanElement.textContent = `${item}`;
+      timeList.appendChild(spanElement);
       timeList.appendChild(document.createTextNode(", "));
-      console.log(spanElement);
     });
     timeList.removeChild(timeList.lastChild); // Remove the coma from last array
 
