@@ -136,6 +136,7 @@ function addNum() {
     }
   }
 }
+
 function printSolves(x) {
   timeList.innerHTML = ""; // Clear list to make room for new list
 
@@ -148,6 +149,8 @@ function printSolves(x) {
     timeList.appendChild(document.createTextNode(", "));
   });
   timeList.removeChild(timeList.lastChild); // Remove the coma from last array
+
+  document.getElementById('results-count').innerHTML = `Solves: ${x.length}`;
 }
 
 
@@ -166,4 +169,7 @@ document.getElementById('btn-reset').addEventListener("click", () => {
   num.innerHTML = `0.00`;
   timeList.innerHTML = ``;
   avgList = [];
+  localStorage.removeItem('session');
+  document.getElementById('results-count').innerHTML = `Solves: 0`;
+
 });

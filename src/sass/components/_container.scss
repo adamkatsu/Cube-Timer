@@ -15,18 +15,23 @@ aside {
     box-shadow: -10px 10px 20px 0px rgba(20, 20, 20, 0.3);
     background-color: rgba(255, 255, 255, 0.2);
 }
-.results-timer {
-    width: 30%;
-    align-items: flex-start;
-    gap: 1rem;   
-}
-.results-list {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 4px;
+.results {
+    &-timer {
+        width: 30%;
+        align-items: flex-start;
+        gap: 1rem; 
+    }
+    &-list {
+        @include flex-box(row, flex-start, flex-start);
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+    &-foot {
+        @include flex-box(row, space-between, center);
+        gap: 2rem;
+        border-top: 1px solid $color-grey; 
+        padding-top: 1rem;
+    }
 }
 .app-timer {
     width: 100%;
@@ -54,7 +59,7 @@ aside {
 }
 .inner-cont {
     @include bg-gradient();
-    @include flex-box(column, flex-start, stretch);
+    @include flex-box(column, space-between, stretch);
     gap: 1rem;
     padding: 1.5rem;
     min-height: 240px;
