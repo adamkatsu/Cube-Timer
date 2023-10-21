@@ -22,6 +22,7 @@ aside {
         gap: 1rem; 
     }
     &-list {
+        @include font-face($font-txt, 14px, $color-white, 400, 140%);
         @include flex-box(row, flex-start, flex-start);
         flex-wrap: wrap;
         gap: 4px;

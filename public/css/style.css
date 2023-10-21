@@ -90,16 +90,16 @@ select {
   color: #f5f5f5;
   font-weight: 400;
   line-height: 140%;
+  letter-spacing: -0.02rem;
 }
 
 .h3 {
   font-family: "Inter", sans-serif;
   font-size: 1rem;
   color: #f5f5f5;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 140%;
-  text-transform: uppercase;
-  letter-spacing: 0.05rem;
+  letter-spacing: 0.03rem;
 }
 
 .btn {
@@ -118,8 +118,9 @@ select {
 }
 .btn-transparent {
   background: transparent;
-  background-color: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1.5rem;
   box-shadow: -10px 10px 20px 0px rgba(20, 20, 20, 0.3);
+  border: 1px solid #f5f5f5;
 }
 
 .btn-wrapper {
@@ -174,6 +175,11 @@ aside {
   gap: 1rem;
 }
 .results-list {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: 400;
+  line-height: 140%;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;

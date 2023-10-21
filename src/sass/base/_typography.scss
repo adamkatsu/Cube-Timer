@@ -9,9 +9,10 @@
 }
 .h2 {
   @include font-face($font-txt, 24px, $color-whitesmoke, 400, 140%);
+  letter-spacing: -0.02rem;
 }
 .h3 {
-  @include font-face($font-txt, 1rem, $color-whitesmoke, 300, 140%);
-  text-transform: uppercase;
-  letter-spacing: 0.05rem;
+  @include font-face($font-txt, 1rem, $color-whitesmoke, 400, 140%);
+  // text-transform: uppercase;
+  letter-spacing: 0.03rem;
 }
