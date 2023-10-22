@@ -93,6 +93,9 @@ select {
   line-height: 140%;
   letter-spacing: -0.02rem;
 }
+.h2-scramble {
+  letter-spacing: 0.05em;
+}
 
 .h3 {
   font-family: "Inter", sans-serif;
@@ -100,7 +103,6 @@ select {
   color: #f5f5f5;
   font-weight: 400;
   line-height: 140%;
-  letter-spacing: 0.03rem;
 }
 
 .btn {
@@ -117,7 +119,8 @@ select {
   color: #f5f5f5;
   cursor: pointer;
 }
-.btn-transparent {
+.btn-sidebar {
+  font-size: 12px;
   background: transparent;
   padding: 0.5rem 1.5rem;
   box-shadow: -10px 10px 20px 0px rgba(20, 20, 20, 0.3);
@@ -134,10 +137,6 @@ select {
   padding: 1rem;
 }
 
-.btn-reset:focus {
-  border: none;
-}
-
 .nav-img {
   min-width: 28px;
 }
@@ -149,10 +148,6 @@ select {
 .nav-foot {
   margin-top: auto;
   margin-bottom: 0;
-}
-
-aside {
-  display: flex;
 }
 
 .container {
@@ -170,9 +165,23 @@ aside {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
+.aside-cont {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 1.5rem;
+}
+
 .results-timer {
-  width: 30%;
+  width: 18vw;
+  min-width: 280px;
   align-items: flex-start;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
   gap: 1rem;
 }
 .results-list {
@@ -205,7 +214,11 @@ aside {
 
 .navbar {
   width: fit-content;
-  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  display: none;
 }
 
 .img-bg {
@@ -242,9 +255,13 @@ aside {
   border-radius: 1rem;
   box-shadow: -10px 10px 20px 0px rgba(20, 20, 20, 0.2);
 }
+.inner-cont.inner-scramble {
+  border-radius: 3rem;
+}
 
 .inner-s {
   min-height: 0px;
+  width: auto;
 }
 
 main {

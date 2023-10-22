@@ -1,9 +1,7 @@
 @use "../abstracts" as *;
 @use "../base" as *;
 
-aside {
-    display: flex;
-}
+
 .container {
     @include flex-box(column, flex-start, center);
     width: fit-content;
@@ -15,11 +13,18 @@ aside {
     box-shadow: -10px 10px 20px 0px rgba(20, 20, 20, 0.3);
     background-color: rgba(255, 255, 255, 0.2);
 }
+.aside-cont {
+    @include flex-box(row, flex-start, stretch);
+    gap: 1.5rem;
+}
 .results {
     &-timer {
-        width: 30%;
+        width: 18vw;
+        min-width: 280px;
         align-items: flex-start;
         gap: 1rem; 
+        @include flex-box(column, flex-start, stretch);
+        gap: 1rem;
     }
     &-list {
         @include font-face($font-txt, 14px, $color-white, 400, 140%);
@@ -40,7 +45,8 @@ aside {
 }
 .navbar {
     width: fit-content;
-    padding: 2rem 1rem;
+    @include flex-box(column, space-between, center);
+    display: none;
 }
 .img-bg {
     position: absolute;
@@ -67,7 +73,12 @@ aside {
     width: 100%; 
     border-radius: 1rem;
     box-shadow: -10px 10px 20px 0px rgba(20, 20, 20, 0.2);
+
+    &.inner-scramble {
+        border-radius: 3rem;
+    }
 }
 .inner-s {
     min-height: 0px;
+    width: auto; 
 }
