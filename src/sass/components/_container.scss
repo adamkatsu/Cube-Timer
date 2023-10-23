@@ -31,6 +31,8 @@
         @include flex-box(row, flex-start, flex-start);
         flex-wrap: wrap;
         gap: 4px;
+        max-height: 200px;
+        overflow-y: scroll;
     }
     &-foot {
         @include flex-box(row, space-between, center);

@@ -21,6 +21,7 @@ let avgList = [];
 let avgStorage = localStorage.getItem('session');
 
 
+
 // Check if session exist
 if(avgStorage === null) {
   // If not exist, let it be
@@ -53,6 +54,8 @@ function startTimer() {
 
     printSolves(newList);
     newScramble(3);
+    printAvg(avgList);
+    console.log(typeof calculateAverageTime(avgList));
 
     // Reset Timer 
     count = 0;
@@ -208,6 +211,58 @@ function newScramble(dim) {
 newScramble(3);
 
 
+// AVERAGE
+
+function timeToMilliseconds(time) {
+  // Parse minutes, seconds, and milliseconds from the time string
+  const [minutes, seconds] = time.split(':').map(parseFloat);
+  const milliseconds = parseFloat(seconds) * 1000 + parseFloat(minutes) * 60 * 1000;
+  return milliseconds;
+}
+function millisecondsToTime(milliseconds) {
+  // Convert milliseconds back to minutes and seconds
+  const totalSeconds = milliseconds / 1000;
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = Math.floor(totalSeconds % 60);
+  const millisecondsRemaining = milliseconds % 1000;
+  return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}.${String(millisecondsRemaining).padStart(3, '0')}`;
+}
+function calculateAverageTime(x) {
+  // Convert time strings to milliseconds and calculate average
+  const totalMilliseconds = x.reduce((total, time) => total + timeToMilliseconds(time), 0);
+  const averageMilliseconds = totalMilliseconds / x.length;
+
+  // Convert average back to the time format
+  const averageTime = millisecondsToTime(averageMilliseconds);
+  console.log(averageTime)
+  return averageTime;
+}
+function printAvg(x) {
+
+  let timeString = calculateAverageTime(x)
+  const targetChar = '.';
+
+  let targetIndex = timeString.indexOf(targetChar);
+  let charactersAfterTarget = '';
+
+  if(timeString.substring(targetIndex + 2, targetIndex + 3) == targetChar) {
+    charactersAfterTarget = timeString.substring(targetIndex + 1, targetIndex + 2) + '0';
+  } else {
+    charactersAfterTarget = timeString.substring(targetIndex + 1, targetIndex + 3);
+  }
+  let charactersBeforeTarget = timeString.substring(0, targetIndex);
+
+  if(x.length !== 0) {
+    document.getElementById('avg-overall').innerHTML = `Average: ${charactersBeforeTarget}.${charactersAfterTarget}`
+  } else {
+    document.getElementById('avg-overall').innerHTML = `Average:`
+  }
+
+}
+printAvg(avgList)
+
+
+
 
 // Event Listeners
 
@@ -228,7 +283,5 @@ document.getElementById('btn-reset').addEventListener("click", () => {
   localStorage.removeItem('session');
   document.getElementById('results-count').innerHTML = `Solves: 0`;
 });
-
-
 
 

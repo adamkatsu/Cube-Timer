@@ -196,6 +196,8 @@ select {
   align-items: flex-start;
   flex-wrap: wrap;
   gap: 4px;
+  max-height: 200px;
+  overflow-y: scroll;
 }
 .results-foot {
   display: flex;
