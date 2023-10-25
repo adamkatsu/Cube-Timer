@@ -126,6 +126,9 @@ select {
   box-shadow: -10px 10px 20px 0px rgba(20, 20, 20, 0.3);
   border: 1px solid #f5f5f5;
 }
+.btn-sidebar:focus, .btn-sidebar:active {
+  outline: none;
+}
 
 .btn-wrapper {
   display: flex;
@@ -197,7 +200,7 @@ select {
   flex-wrap: wrap;
   gap: 4px;
   max-height: 200px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .results-foot {
   display: flex;

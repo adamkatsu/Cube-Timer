@@ -8,6 +8,7 @@
 // We save session history in localStorage
 
 let num = document.querySelector(".time-show");
+let btnReset = document.getElementById('btn-reset')
 const timeList = document.getElementById('results');
 let count = 0;
 let minutes = 0;
@@ -35,6 +36,9 @@ if(avgStorage === null) {
 
 // Main Timer Function
 function startTimer() {
+  // Disable reset button focus
+  btnReset.blur();
+
   if (int !== null) {
     // If Timer is Running, STOP.
     clearInterval(int);
@@ -275,7 +279,7 @@ window.addEventListener("keyup", (event) => {
 });
 
 // Button function
-document.getElementById('btn-reset').addEventListener("click", () => {
+btnReset.addEventListener("click", () => {
   num.innerHTML = `0.00`;
   timeList.innerHTML = ``;
   avgList = [];

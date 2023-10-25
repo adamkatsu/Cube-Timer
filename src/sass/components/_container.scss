@@ -32,7 +32,7 @@
         flex-wrap: wrap;
         gap: 4px;
         max-height: 200px;
-        overflow-y: scroll;
+        overflow-y: auto;
     }
     &-foot {
         @include flex-box(row, space-between, center);
