@@ -1,3 +1,3 @@
 # Cube-Timer
 
-staging: https://cube-timer-three.vercel.app/
+staging: https://misocube.vercel.app/
